@@ -63,6 +63,11 @@
             padding-block: rem(24);
         }
 
+        @include mobile {
+            flex-direction: column;
+            row-gap: rem(20);
+        }
+
         &-menu {
             &-list {
                 display: flex;
@@ -75,5 +80,10 @@
                     }
                 }
         }
+        }
+        &__soc1als {
+            @include mobile {
+                order: -1;
+            }
     }
 }
