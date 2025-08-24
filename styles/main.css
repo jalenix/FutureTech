@@ -893,10 +893,12 @@ button[aria-label]::before {
   font-family: var(--font-family-accent);
 }
 
-.hero__main {
-  display: grid;
-  grid-template-columns: 60% auto;
-  grid-template-areas: "body resources-preview" "metrics resources-preview";
+@media (width > 63.99875rem) {
+  .hero__main {
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-areas: "body resources-preview" "metrics resources-preview";
+  }
 }
 .hero__body {
   grid-area: body;
@@ -910,6 +912,13 @@ button[aria-label]::before {
     padding-right: 2.5rem;
   }
 }
+@media (width <= 63.99875rem) {
+  .hero__body {
+    padding-right: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 1.875rem;
+  }
+}
 .hero__subtitle {
   font-size: clamp(1.125rem, 0.9338235294rem + 0.7843137255vw, 1.875rem);
   font-family: var(--font-family-accent);
@@ -919,8 +928,18 @@ button[aria-label]::before {
 .hero__subtitle:not(:last-child) {
   margin-bottom: 1.875rem;
 }
+@media (width <= 47.99875rem) {
+  .hero__subtitle:not(:last-child) {
+    margin-bottom: 0.875rem;
+  }
+}
 .hero__title:not(:last-child) {
   margin-bottom: 1.25rem;
+}
+@media (width <= 47.99875rem) {
+  .hero__title:not(:last-child) {
+    margin-bottom: 0.625rem;
+  }
 }
 .hero__metrics {
   grid-area: metrics;

@@ -1,12 +1,14 @@
-@use '../helpers' as *;
+@use '../helpers'as *;
 
 .hero {
     &__main {
-        display: grid;
-        grid-template-columns: 60% auto;
-        grid-template-areas: 
-        'body resources-preview'
-        'metrics resources-preview';
+        @include tablet-above {
+            display: grid;
+            grid-template-columns: 60% auto;
+            grid-template-areas:
+                'body resources-preview'
+                'metrics resources-preview';
+        }
     }
 
     &__body {
@@ -18,6 +20,12 @@
         @include laptop {
             padding-top: rem(100);
             padding-right: rem(40)
+        }
+
+        @include tablet {
+            padding-right: 0;
+            padding-top: rem(40);
+            padding-bottom: rem(30);
         }
     }
 
@@ -32,12 +40,20 @@
 
         &:not(:last-child) {
             margin-bottom: rem(30);
+
+            @include mobile {
+                margin-bottom: rem(14);
+            }
         }
     }
 
     &__title {
         &:not(:last-child) {
             margin-bottom: rem(20);
+
+            @include mobile {
+                margin-bottom: rem(10);
+            }
         }
     }
 
@@ -46,22 +62,24 @@
         grid-area: metrics;
         border-top: var(--border);
     }
+
     &__resources-preview {
         grid-area: resources-preview;
         padding-left: rem(80);
         padding-bottom: rem(80);
         border-left: var(--border);
         background:
-         url(../../img/resources-preview/bg.png) 0 0/cover no-repeat;
+            url(../../img/resources-preview/bg.png) 0 0/cover no-repeat;
 
-         @include laptop {
+        @include laptop {
             padding-left: rem(50);
             padding-bottom: rem(50);
-         }
+        }
     }
 
     &__advantages {
         border-block: var(--border);
+
         &-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -81,6 +99,7 @@
             &:not(:first-child) {
                 padding-left: var(--paddingX);
             }
+
             &:not(:last-child) {
                 padding-right: var(--paddingX);
                 border-right: var(--border);
